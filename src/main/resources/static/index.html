@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Feest Jan en Bien</title>
+    <script src="js/bevestiging.js" type="module" defer></script>
+    <link rel="icon" href="images/cake.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/feestjanbien.css">
+</head>
+<body>
+<h1>67e verjaardag Jan en Bien</h1>
+<h2>Bevestigen</h2>
+<label>Voornaam:
+    <span id="naamFout" class="fout" hidden>Verplicht</span>
+    <input id="voornaam" required autofocus>
+</label>
+<label>Familienaam:
+    <span id="prijsFout" class="fout" hidden>Verplicht</span>
+    <input id="familienaam" required autofocus>
+</label>
+<label>Eet je mee?
+    <select id="eetMee" name="Eet je mee?">
+        <option value="" disabled selected>--- Maak een keuze ---</option>
+        <option value="ja">Ja</option>
+        <option value="nee">Nee</option>
+        <option value="misschien">Misschien</option>
+    </select>
+</label>
+<label for="opmerkingen">Opmerkingen</label>
+<textarea id="opmerkingen" name="opmerkingen" placeholder="Schrijf hier bijkomende opmerkingen." style="height:200px"></textarea>
+<button id="toevoegen">Toevoegen</button>
+<div id="storing" class="fout" hidden>Storing, contacteer helpdesk.</div>
+</body>
+</html>
