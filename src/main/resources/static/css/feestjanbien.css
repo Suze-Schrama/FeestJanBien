@@ -34,6 +34,12 @@ input, button {
     margin-top: 0.2em;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 nav ul {
     background-color: #3e8e41;
     padding: 0.4em 0;

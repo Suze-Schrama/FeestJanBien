@@ -2,6 +2,7 @@
 import{byId, toon, verberg} from "./util.js";
 byId("toevoegen").onclick = async function () {
     verbergFouten();
+    verbergSuccess();
     const voornaamInput = byId("voornaam");
     if (! voornaamInput.checkValidity()) {
         toon("naamFout");
@@ -33,6 +34,10 @@ function verbergFouten() {
     verberg("storing");
 }
 
+function verbergSuccess(){
+    verberg("success");
+}
+
 async function voegToe(bevestiging){
     const response = await fetch("bevestiging",
         {method: "POST",
@@ -40,7 +45,7 @@ async function voegToe(bevestiging){
             body: JSON.stringify(bevestiging)
     });
     if (response.ok){
-        window.location = "index.html";
+        toon("success");
     } else {
         toon("storing");
     }

@@ -2,32 +2,57 @@
 <html lang="nl">
 <head>
     <title>Feest Jan en Bien</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/bevestiging.js" type="module" defer></script>
     <link rel="icon" href="images/cake.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/feestjanbien.css">
 </head>
 <body>
-<h1>67e verjaardag Jan en Bien</h1>
-<h2>Bevestigen</h2>
-<label>Voornaam:
-    <span id="naamFout" class="fout" hidden>Verplicht</span>
-    <input id="voornaam" required autofocus>
-</label>
-<label>Familienaam:
-    <span id="prijsFout" class="fout" hidden>Verplicht</span>
-    <input id="familienaam" required autofocus>
-</label>
-<label>Eet je mee?
-    <select id="eetMee" name="Eet je mee?">
-        <option value="" disabled selected>--- Maak een keuze ---</option>
-        <option value="ja">Ja</option>
-        <option value="nee">Nee</option>
-        <option value="misschien">Misschien</option>
-    </select>
-</label>
-<label for="opmerkingen">Opmerkingen</label>
-<textarea id="opmerkingen" name="opmerkingen" placeholder="Schrijf hier bijkomende opmerkingen." style="height:200px"></textarea>
-<button id="toevoegen">Toevoegen</button>
-<div id="storing" class="fout" hidden>Storing, contacteer helpdesk.</div>
+<div class="d-flex justify-content-center">
+<div class="container-sm pt-5 my-5 border-0">
+    <h1>67e verjaardag Jan en Bien</h1>
+    <h2>Bevestigen</h2>
+    <form onsubmit="voegToe(this)">
+    <ul>
+        <li>
+            <label>Voornaam:
+                <span id="naamFout" class="fout" hidden>Verplicht</span>
+                <input id="voornaam" required autofocus>
+            </label></li>
+        <li>
+            <label>Familienaam:
+                <span id="prijsFout" class="fout" hidden>Verplicht</span>
+                <input id="familienaam" required autofocus>
+            </label></li>
+        <li>
+            <label>Eet je mee?
+                <select class="form-select" id="eetMee" name="Eet je mee?">
+                    <option value="" disabled selected>--- Maak een keuze ---</option>
+                    <option value="ja">Ja</option>
+                    <option value="nee">Nee</option>
+                    <option value="misschien">Misschien</option>
+                </select>
+            </label></li>
+        <li>
+            <label for="opmerkingen">Opmerkingen</label>
+        </li>
+        <li>
+            <textarea id="opmerkingen" name="opmerkingen" placeholder="Schrijf hier bijkomende opmerkingen."
+                      style="height:200px"></textarea>
+        </li>
+        <li>
+            <button id="toevoegen">Toevoegen</button>
+        </li>
+    </ul>
+    </form>
+    <div id="success" class="alert alert-success" hidden>
+        <strong>Bedankt voor het bevestigen en tot dan!</strong>
+    </div>
+    <div id="storing" class="fout" hidden>Storing, contacteer helpdesk.</div>
+</div>
+</div>
 </body>
 </html>
