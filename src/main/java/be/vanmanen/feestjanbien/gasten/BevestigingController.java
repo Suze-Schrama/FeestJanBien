@@ -13,7 +13,7 @@ class BevestigingController {
     }
 
     @PostMapping("bevestiging")
-    void create(@RequestBody NieuweBevestiging nieuweBevestiging){
-        bevestigingService.create(nieuweBevestiging);
+    long create(@RequestBody NieuweBevestiging nieuweBevestiging){
+        return bevestigingService.create(nieuweBevestiging);
     }
 }

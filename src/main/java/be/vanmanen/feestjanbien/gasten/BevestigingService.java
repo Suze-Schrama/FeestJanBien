@@ -13,8 +13,8 @@ class BevestigingService {
     }
 
     @Transactional
-    void create(NieuweBevestiging nieuweBevestiging) {
-        var bevestiging = new Bevestiging(0, nieuweBevestiging.voornaam(), nieuweBevestiging.familienaam(), nieuweBevestiging.eetMee(), nieuweBevestiging.opmerking());
-        bevestigingRepository.create(bevestiging);
+    long create(NieuweBevestiging nieuweBevestiging) {
+        var bevestiging = new Bevestiging(0, nieuweBevestiging.voornaam(), nieuweBevestiging.familienaam(), nieuweBevestiging.eetMee(), nieuweBevestiging.opmerkingen());
+        return bevestigingRepository.create(bevestiging);
     }
 }

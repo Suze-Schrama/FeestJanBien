@@ -4,15 +4,15 @@ class Bevestiging {
  private final long id;
  private final String voornaam;
  private final String familienaam;
- private final boolean eetMee;
- private final String opmerking;
+ private final String eetMee;
+ private final String opmerkingen;
 
- public Bevestiging(long id, String voornaam, String familienaam, boolean eetMee, String opmerking) {
+ public Bevestiging(long id, String voornaam, String familienaam, String eetMee, String opmerkingen) {
   this.id = id;
   this.voornaam = voornaam;
   this.familienaam = familienaam;
   this.eetMee = eetMee;
-  this.opmerking = opmerking;
+  this.opmerkingen = opmerkingen;
  }
 
  public long getId() {
@@ -27,11 +27,11 @@ class Bevestiging {
   return familienaam;
  }
 
- public boolean getEetMee() {
+ public String getEetMee() {
   return eetMee;
  }
 
- public String getOpmerking() {
-  return opmerking;
+ public String getOpmerkingen() {
+  return opmerkingen;
  }
 }
