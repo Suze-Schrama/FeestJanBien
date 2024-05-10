@@ -24,7 +24,7 @@ byId("toevoegen").onclick = async function () {
         voornaam: voornaamInput.value,
         familienaam: familienaamInput.value,
         eetMee: eetMeeInput.value.toString(),
-        opmerking: opmerkingen.value
+        opmerkingen: opmerkingen.value.toString()
     };
     await voegToe(bevestiging);
 }
