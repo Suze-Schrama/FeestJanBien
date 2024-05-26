@@ -15,7 +15,7 @@ class BevestigingController {
         this.bevestigingService = bevestigingService;
     }
 
-    private record VoornaamFamilienaam(String voornaam, String familieNaam) {
+    private record VoornaamFamilienaam(String voornaam, String familienaam) {
         VoornaamFamilienaam(Bevestiging bevestiging) {
         this(bevestiging.getVoornaam(), bevestiging.getFamilienaam());
     }}

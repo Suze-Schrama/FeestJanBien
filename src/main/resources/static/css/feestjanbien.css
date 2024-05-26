@@ -1,8 +1,107 @@
-body {
-    background-color: #FFFFDE;
-    font-family: sans-serif;
+*{
+    box-sizing: border-box;
+}
+.header{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    background-image: url("../images/tuinlucht.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 70px 0;
+    height: 200px;
+}
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25); /* Black overlay with 50% opacity */
+    z-index: 1;
 }
 
+.header h1, .header h2 {
+    position: relative;
+    z-index: 2;
+    color: white; /* Ensure text is white for better contrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better visibility */
+}
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.row {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: -webkit-flex;
+    display: flex;
+}
+.column.indexleft {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background-image: url("../images/AnimeJan.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+.column.indexmiddle {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    background-image: url("../images/flower background.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+.column.indexright {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background-image: url("../images/AnimeBien.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../images/flower background.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+.column.gastenleft {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.column.gastenmiddle {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.column.gastenright {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 dd, dt {
     margin-left: 0;
 }
@@ -46,18 +145,24 @@ ul {
     margin: 0;
     padding: 0;
 }
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(200, 230, 203);
 
+}
 nav ul {
-    background-color: #3e8e41;
+    background-color: rgb(200, 230, 203);
     padding: 0.4em 0;
 }
 
 nav li {
     display: inline;
+    padding: 2em;
 }
 
 nav li a {
-    color: white;
+    color: darkgreen;
     font-weight: bold;
     padding-left: 0.5em;
     text-decoration: none;
@@ -91,7 +196,12 @@ button:disabled {
     cursor: not-allowed;
 }
 
-table,
+table
+{
+    width: 100%;
+    margin-bottom: 1em;
+    padding-left: 10em;
+}
 td,
 th {
     border: 1px solid silver;
@@ -100,8 +210,8 @@ th {
 }
 
 th {
-    color: white;
-    background-color: #4CAF50;
+    color: darkgreen;
+    background-color: rgb(200, 230, 203);
 }
 
 td {
@@ -110,7 +220,7 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: #FAFABA;
+    background-color: rgb(200, 230, 203);
 }
 
 tr:nth-child(odd) {
@@ -119,4 +229,22 @@ tr:nth-child(odd) {
 
 .getal {
     text-align: right;
+}
+.formTitle{
+    padding: 70px;
+    text-align: center;
+    text-emphasis: #f1f1f1;
+    font-weight: bold;
+    font-size: 40px;
+    color: darkgreen;
+    background-color: rgb(200, 230, 203);
+    height: 1em;
+}
+form {
+    color: darkgreen;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 1em;
+    padding-left: 17em;
+    padding-top: 0;
 }

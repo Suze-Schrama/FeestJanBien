@@ -46,4 +46,10 @@ class BevestigingControllerTest {
                 .getContentAsString();
         assertThat(JdbcTestUtils.countRowsInTableWhere(jdbcClient, BEVESTIGINGEN_TABLE, "voornaam = 'test4' AND familienaam = 'test4familienaam' AND id = " + responseBody)).isOne();
     }
-}
+
+    @Test
+    void findAllVindtAlleBevestigingen() throws Exception {
+        mockMvc.perform(get("/bevestigingen"))
+                .andExpectAll(status().isOk(), jsonPath("length()")
+                        .value(JdbcTestUtils.countRowsInTable(jdbcClient, BEVESTIGINGEN_TABLE)));
+    }}
