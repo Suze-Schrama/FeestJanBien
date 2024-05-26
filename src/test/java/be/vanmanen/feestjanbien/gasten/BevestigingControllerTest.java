@@ -10,6 +10,9 @@ import org.springframework.test.jdbc.JdbcTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -23,6 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @AutoConfigureMockMvc
 class BevestigingControllerTest {
     private final static String BEVESTIGINGEN_TABLE = "bevestigingen";
+    private final static Path TEST_RESOURCES = Path.of("src/test/resources");
     private final MockMvc mockMvc;
     private final JdbcClient jdbcClient;
 
@@ -33,18 +37,13 @@ class BevestigingControllerTest {
 
     @Test
     void createVoegtDeBevestigingToe() throws Exception {
-        var responseBody = mockMvc.perform(post("/bevestigingen").contentType(MediaType.APPLICATION_JSON)
-                        .content("""
-                                {
-                                "voornaam": "test4",
-                                "familienaam": "test4familienaam",
-                                "eetMee": "ja",
-                                "opmerkingen": "test4opmerking"
-                                }
-                                """))
-                .andExpect(status().isOk())
-                .andReturn().getResponse().getContentAsString();
-        assertThat(JdbcTestUtils.countRowsInTableWhere(jdbcClient, BEVESTIGINGEN_TABLE,
-                "naam = 'test4' and id =" + responseBody)).isOne();
+        var jsonData = Files.readString(TEST_RESOURCES.resolve("correcteBevestiging.json"));
+        var responseBody = mockMvc.perform(post("/bevestigingen")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonData)).andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        assertThat(JdbcTestUtils.countRowsInTableWhere(jdbcClient, BEVESTIGINGEN_TABLE, "voornaam = 'test4' AND familienaam = 'test4familienaam' AND id = " + responseBody)).isOne();
     }
 }

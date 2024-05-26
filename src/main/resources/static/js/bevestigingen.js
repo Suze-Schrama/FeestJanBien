@@ -1,55 +1,64 @@
 "use strict";
-import {byId, toon, verberg} from "./util.js";
+import {byId, setText, toon, verberg} from "./util.js";
 
-byId("toevoegen").onclick = async function () {
+byId("confirmationForm").onsubmit = async function (event) {
+    event.preventDefault();
+
     verbergFouten();
-    verbergSuccess();
+    verbergSucces();
     const voornaamInput = byId("voornaam");
+    const familienaamInput = byId("familienaam");
+    const eetMeeInput = byId("eetMee");
+    const opmerkingInput = byId("opmerking");
+
     if (!voornaamInput.checkValidity()) {
-        toon("naamFout");
+        toon("voornaamFout");
         voornaamInput.focus();
         return;
     }
-    const familienaamInput = byId("familienaam");
+
     if (!familienaamInput.checkValidity()) {
-        toon("naamFout");
+        toon("familienaamFout");
         familienaamInput.focus();
         return;
     }
 
-    const eetMeeInput = byId("eetMee");
-    const opmerkingen = byId("opmerkingen");
-
     const bevestiging = {
         voornaam: voornaamInput.value,
         familienaam: familienaamInput.value,
-        eetMee: eetMeeInput.value.toString(),
-        opmerkingen: opmerkingen.value.toString()
+        eetMee: eetMeeInput.value,
+        opmerkingen: opmerkingInput.value
     };
+
+    console.log("Bevestiging object:", bevestiging);
     await voegToe(bevestiging);
+};
+
+function verbergFouten() {
+    verberg("voornaamFout");
+    verberg("familienaamFout");
+    verberg("storing");
 }
 
-    function verbergFouten() {
-        verberg("naamFout");
-        verberg("prijsFout");
-        verberg("storing");
-    }
+function verbergSucces() {
+    verberg("succes");
+}
 
-    function verbergSuccess() {
-        verberg("success");
-    }
+async function voegToe(bevestiging) {
+    console.log("Sending bevestiging to API at '/bevestigingen'");
+    const response = await fetch("/bevestigingen", { // Adjust the path here if needed
+        method: "POST",
+        headers: {'Content-Type': "application/json"},
+        body: JSON.stringify(bevestiging)
+    });
 
-    async function voegToe(bevestiging) {
-        const response = await fetch("bevestiging",
-            {
-                method: "POST",
-                headers: {'Content-Type': "application/json"},
-                body: JSON.stringify(bevestiging)
-            });
-        if (response.ok) {
-            toon("success");
-        } else {
-            toon("storing");
-        }
+    console.log("Response status:", response.status);
+    if (response.ok) {
+        toon("succes");
+        setTimeout(() => {
+            window.location = "index.html";
+        }, 2000);
+    } else {
+        toon("storing");
     }
-
+}

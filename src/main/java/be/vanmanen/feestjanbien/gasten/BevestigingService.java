@@ -3,6 +3,8 @@ package be.vanmanen.feestjanbien.gasten;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 class BevestigingService {
@@ -16,5 +18,9 @@ class BevestigingService {
     long create(NieuweBevestiging nieuweBevestiging) {
         var bevestiging = new Bevestiging(0, nieuweBevestiging.voornaam(), nieuweBevestiging.familienaam(), nieuweBevestiging.eetMee(), nieuweBevestiging.opmerkingen());
         return bevestigingRepository.create(bevestiging);
+    }
+
+    List<Bevestiging>findAll(){
+        return bevestigingRepository.findAll();
     }
 }

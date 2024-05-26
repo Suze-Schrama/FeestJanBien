@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/feestjanbien.css">
 </head>
 <body>
-<form onsubmit="voegToe(this)">
+<form id="confirmationForm">
     <div class="d-flex justify-content-center">
         <div class="container-sm pt-5 my-5 border-0">
             <h1>67e verjaardag Jan en Bien</h1>
@@ -21,38 +21,39 @@
             <ul>
                 <li>
                     <label>Voornaam:
-                        <span id="naamFout" class="fout" hidden>Verplicht</span>
+                        <span id="voornaamFout" class="fout" hidden>Verplicht</span>
                         <input id="voornaam" required autofocus>
                     </label></li>
                 <li>
                     <label>Familienaam:
-                        <span id="prijsFout" class="fout" hidden>Verplicht</span>
-                        <input id="familienaam" required autofocus>
+                        <span id="familienaamFout" class="fout" hidden>Verplicht</span>
+                        <input id="familienaam" required>
                     </label></li>
                 <li>
                     <label>Eet je mee?
-                        <select class="form-select" id="eetMee" name="Eet je mee?">
+                        <select class="form-select" id="eetMee">
                             <option value="" disabled selected>--- Maak een keuze ---</option>
                             <option value="ja">Ja</option>
                             <option value="nee">Nee</option>
                             <option value="misschien">Misschien</option>
                         </select>
-                    </label></li>
-                <li>
-                    <label for="opmerkingen">Opmerkingen</label>
+                    </label>
                 </li>
                 <li>
-            <textarea id="opmerkingen" name="opmerkingen" placeholder="Schrijf hier bijkomende opmerkingen."
+                    <label for="opmerking">Opmerkingen</label>
+                </li>
+                <li>
+            <textarea id="opmerking" placeholder="Schrijf hier bijkomende opmerkingen."
                       style="height:200px"></textarea>
                 </li>
                 <li>
-                    <button id="toevoegen">Toevoegen</button>
+                    <button type="submit" id="toevoegen">Toevoegen</button>
                 </li>
             </ul>
-            <div id="success" class="alert alert-success" hidden>
+            <div id="succes" class="goed" hidden>
                 <strong>Bedankt voor het bevestigen en tot dan!</strong>
             </div>
-            <div id="storing" class="fout" hidden>Storing, contacteer helpdesk.</div>
+            <div id="storing" class="fout" hidden>Storing, probeer later nog eens.</div>
         </div>
     </div>
 </form>
