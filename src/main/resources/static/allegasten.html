@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
+  <head>
     <title>Bevestigingen</title>
     <script src="js/allebevestigingen.js" type="module" defer></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="icon" href="images/cake.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/feestjanbien.css">
-</head>
-<body>
-<div class="header">
-    <h1>Bevestigingen</h1></div>
-<nav>
-    <ul>
-        <li>
-            <a href="index.html">Bevestigen</a>
-        </li>
-        <li>
-            <a href="allegasten.html">Alle bevestigingen</a>
-        </li>
-    </ul>
-</nav>
-    <div class="row">
-        <div class="column gastenleft"></div>
-        <div class="column gastenmiddle">
-            <img src="images/JanBienKidsMetBorder.jpg" alt="fotovandejarigen" class="img-fluid">
-            <table>
-                <thead>
-                <tr>
-                    <th>Voornaam</th>
-                    <th>Familienaam</th>
-                </tr>
-                </thead>
-                <tbody id="bevestigingenBody">
-                </tbody>
-            </table>
-            <div id="storing" class="fout" hidden>Storing, probeer het later nog eens.</div>
-        </div>
-        <div class="column gastenright"></div>
+    <link rel="icon" href="images/cake.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/feestjanbien.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Bevestigingen</h1>
     </div>
-</body>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html">Bevestigen</a>
+        </li>
+        <li>
+          <a href="allegasten.html">Alle bevestigingen</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="row">
+      <div class="column gastenleft"></div>
+      <div class="column gastenmiddle">
+        <img
+          src="images/JanBienKidsMetBorder.jpg"
+          alt="fotovandejarigen"
+          class="img-fluid"
+        />
+        <table>
+          <thead>
+            <tr>
+              <th>Voornaam</th>
+              <th>Familienaam</th>
+            </tr>
+          </thead>
+          <tbody id="bevestigingenBody"></tbody>
+        </table>
+        <div id="storing" class="fout" hidden>
+          Storing, probeer het later nog eens.
+        </div>
+      </div>
+      <div class="column gastenright"></div>
+    </div>
+  </body>
 </html>
