@@ -1,6 +1,20 @@
 "use strict";
 import {byId, setText, toon, verberg} from "./util.js";
 
+function capitalizeNames(name) {
+    const lowerExceptions = ["de", "van", "der"];
+    const words = name.split(/\s+/);
+    const capitalizedWords = words.map((word, index) => {
+        // If the word is one of the exceptions and it is not the first word, return it as is
+        if (lowerExceptions.includes(word.toLowerCase()) && index !== 0) {
+            return word;
+        } else {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }
+    });
+    return capitalizedWords.join(" ");
+}
+
 byId("confirmationForm").onsubmit = async function (event) {
     event.preventDefault();
 
@@ -23,9 +37,17 @@ byId("confirmationForm").onsubmit = async function (event) {
         return;
     }
 
+    // Capitalize names using the capitalizeNames function
+    const capitalizedVoornaam = capitalizeNames(voornaamInput.value);
+    const capitalizedFamilienaam = capitalizeNames(familienaamInput.value);
+
+    // Set the capitalized names to the input fields
+    voornaamInput.value = capitalizedVoornaam;
+    familienaamInput.value = capitalizedFamilienaam;
+
     const bevestiging = {
-        voornaam: voornaamInput.value,
-        familienaam: familienaamInput.value,
+        voornaam: capitalizedVoornaam,
+        familienaam: capitalizedFamilienaam,
         eetMee: eetMeeInput.value,
         opmerkingen: opmerkingInput.value
     };
@@ -56,7 +78,7 @@ async function voegToe(bevestiging) {
     if (response.ok) {
         toon("succes");
         setTimeout(() => {
-            window.location = "index.html";
+            window.location = "allegasten.html";
         }, 2000);
     } else {
         toon("storing");

@@ -1,5 +1,6 @@
 package be.vanmanen.feestjanbien.gasten;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,20 +16,20 @@ class BevestigingController {
         this.bevestigingService = bevestigingService;
     }
 
-    private record VoornaamFamilienaam(String voornaam, String familienaam) {
-        VoornaamFamilienaam(Bevestiging bevestiging) {
-        this(bevestiging.getVoornaam(), bevestiging.getFamilienaam());
+    private record VoornaamFamilienaamEetMee(String voornaam, String familienaam, String eetMee) {
+        VoornaamFamilienaamEetMee(Bevestiging bevestiging) {
+        this(bevestiging.getVoornaam(), bevestiging.getFamilienaam(), bevestiging.getEetMee());
     }}
 
     @PostMapping("bevestigingen")
-    long create(@RequestBody NieuweBevestiging nieuweBevestiging){
+    long create(@RequestBody @Valid NieuweBevestiging nieuweBevestiging){
         return bevestigingService.create(nieuweBevestiging);
     }
 
     @GetMapping("bevestigingen")
-    Stream<VoornaamFamilienaam>findAll(){
+    Stream<VoornaamFamilienaamEetMee>findAll(){
         return bevestigingService.findAll()
                 .stream()
-                .map(bevestiging -> new VoornaamFamilienaam(bevestiging));
+                .map(bevestiging -> new VoornaamFamilienaamEetMee(bevestiging));
     }
 }

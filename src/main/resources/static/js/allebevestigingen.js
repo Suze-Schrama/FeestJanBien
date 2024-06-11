@@ -9,6 +9,7 @@ if (response.ok) {
         const tr = bevestigingenBody.insertRow();
         tr.insertCell().innerText = bevestiging.voornaam;
         tr.insertCell().innerText = bevestiging.familienaam;
+        tr.insertCell().innerText = bevestiging.eetMee;
     }
 } else {
     toon("storing");

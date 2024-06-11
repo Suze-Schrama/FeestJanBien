@@ -29,23 +29,22 @@
     <div class="column indexleft"></div>
     <div class="column indexmiddle">
         <div class="formTitle"> <h2>Bevestig je aanwezigheid</h2></div>
-    <form id="confirmationForm">
-        <div class="d-flex justify-content-center">
-            <div class="container-sm pt-5 my-5 border-0">
+    <form id="confirmationForm" class="d-flex justify-content-center">
+            <div class="container-sm pt-4 my-4 border-0">
                     <ul>
                     <li>
                         <label>Voornaam:
-                            <span id="voornaamFout" class="fout" hidden>Verplicht</span>
+                            <span id="voornaamFout" class="fout" hidden>Verplicht in te vullen</span>
                             <input id="voornaam" required autofocus>
                         </label></li>
                     <li>
                         <label>Familienaam:
-                            <span id="familienaamFout" class="fout" hidden>Verplicht</span>
+                            <span id="familienaamFout" class="fout" hidden>Verplicht in te vullen</span>
                             <input id="familienaam" required>
                         </label></li>
                     <li>
                         <label>Eet je mee?
-                            <select class="form-select" id="eetMee">
+                            <select class="form-select" id="eetMee" required>
                                 <option value="" disabled selected>--- Maak een keuze ---</option>
                                 <option value="ja">Ja</option>
                                 <option value="nee">Nee</option>
@@ -69,10 +68,11 @@
                 </div>
                 <div id="storing" class="fout" hidden>Storing, probeer later nog eens.</div>
             </div>
-        </div>
     </form>
     </div>
     <div class="column indexright"></div>
 </div>
+<footer>  <p>Creator: Suze Schrama  |  Contact:
+    <a href="mailto:suze.schrama@gmail.com">suze.schrama@gmail.com</a></p></footer>
 </body>
 </html>
