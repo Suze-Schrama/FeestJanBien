@@ -1,0 +1,51 @@
+{
+  "name": "feest app",
+  "short_name": "feest",
+  "start_url": "/index",
+  "display": "standalone",
+  "background_color": "#e0dade",
+  "theme_color": "#df001f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icons/feest-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/images/icons/feest-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/images/icons/feest-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/images/icons/feest-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/images/icons/feest-152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "/images/icons/feest-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icons/feest-384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/images/icons/feest-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
